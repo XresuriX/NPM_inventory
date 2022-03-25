@@ -1,0 +1,28 @@
+{% extends "report/base.html" %}
+{% load static%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section id="login-page-wrapper">
+	<div id="login-form-wrapper">
+
+		 <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+
+
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-warning" type="submit">Login</button>
+            </div>
+        </form>
+
+
+
+
+	</div>
+</section>
+
+{% endblock content %}

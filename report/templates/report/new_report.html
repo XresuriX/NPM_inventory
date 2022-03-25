@@ -1,0 +1,573 @@
+{% extends "report/base.html" %}
+{% load static%}
+{% block content %}
+
+<div class="table-responsive ">
+  <table class="table table-sm table-bordered border-primary" >
+    <col>
+    <colgroup span="2"></colgroup>
+    <colgroup span="2"></colgroup>
+    <tr>
+      <th style="text-align: center;" rowspan="2">Ingredients</th>
+      <th style="text-align: center;" colspan="2" scope="colgroup">open</th>
+      <th style="text-align: center;" >Received</th>
+      <th style="text-align: center;" >Bin top up</th>
+      <th style="text-align: center;" colspan="3" scope="colgroup" >Usage</th>
+      <th style="text-align: center;" colspan="2" scope="colgroup">Close</th>
+      <th style="text-align: center;">Amt used</th>
+      <th style="text-align: center;" colspan="2" scope="colgroup">Expiry date</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;" scope="col">Bags</th>
+      <th style="text-align: center;" scope="col">Kgs</th>
+      <th style="text-align: center;" scope="col">Bags</th>
+      <th style="text-align: center;" scope="col">Bags dumped in <BR> micro bin</th>
+      <th style="text-align: center;" scope="col">hand add</th>
+      <th style="text-align: center;" scope="col">kgs dumped</th>
+      <th style="text-align: center;" scope="col">Lot number</th>
+      <th style="text-align: center;" scope="col">Bags</th>
+      <th style="text-align: center;" scope="col">Kgs</th>
+      <th style="text-align: center;" scope="col">Kgs</th>
+      <th style="text-align: center;" scope="col">oldest</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;" scope="row">Nuscience Broiler Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Nuscience Layer Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Nuscience Swine Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Nuscience Dairy Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Nuscience Horse Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Dev. Broiler starter Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Dev. Broiler finisher Premix</th>
+     <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Omega-pro Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Egg pigment Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Dev Sow Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Dev Pig Starter Premix</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Lysine</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Methionine</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Limestone grits </th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Limestone Jumbo</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Dical Phosphate (Jumbo)</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Salt</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Sodium Bicarbonate</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Urea</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Ammonium Chloride</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Magnesium Oxide</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Alfalfa</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Beet Pulp</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr><tr>
+      <th style="text-align: center;" scope="row">Oats</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Threonine</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Champlac</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Tylan</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Acid buffer</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Cotton seed</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Lignobond</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Copper Sulphate</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row">Monteban</th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row"><input type="string"></th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr><tr>
+      <th style="text-align: center;" scope="row"><input type="string"></th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row"><input type="string"></th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row"><input type="string"></th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row"><input type="string"></th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+      <tr>
+      <th style="text-align: center;" scope="row"><input type="string"></th>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="string"></td>
+      <td><input type="number"></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+      <td><input type="number" step="any" ></td>
+    </tr>
+
+  </table>
+  <div class="container">
+    <button type="button" class="btn btn-warning" style="align: center;">submit</button>
+    <button type="button" class="btn btn-warning" style="align: center;">Back to home</button>
+
+  </div>
+
+</div>
+{% endblock content %}
+
