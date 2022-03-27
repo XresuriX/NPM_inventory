@@ -3,6 +3,9 @@
 {% block content %}
 
 <div class="table-responsive ">
+    <div class="greeting" style="text-align: center;" >
+        <h1>{% if user.is_authenticated %}Prepared by, {{ user.username }}.{% endif %}</h1>
+    </div>
   <table class="table table-sm table-bordered border-primary" >
     <col>
     <colgroup span="2"></colgroup>
@@ -563,8 +566,9 @@
 
   </table>
   <div class="container">
-    <button type="button" class="btn btn-warning" style="align: center;">submit</button>
-    <button type="button" class="btn btn-warning" style="align: center;">Back to home</button>
+
+    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="#">submit </a>
+    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="{% url 'report:home' %}">Back to home</a>
 
   </div>
 

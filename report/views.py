@@ -8,7 +8,7 @@ def home(request):
 
 
 def new_report(request):
-    return HttpResponseRedirect(request, 'report/new_report.html')
+    return render(request, 'report/new_report.html')
 
 
 def loginPage(request):
