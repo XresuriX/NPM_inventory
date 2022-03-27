@@ -5,15 +5,16 @@ from PIL import Image
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(null=True, default='none', upload_to='profile_img')
-    Company = models.TextField(null=False, blank=True)
+    image = models.ImageField(null=True, max_length=200, default='none', upload_to='profile_img')
+    Company = models.TextField(null=False, max_length=200, blank=True)
     Department = models.TextField(null=False, blank=True)
+    title = models.CharField(max_length=200, default='Employee')
 
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 

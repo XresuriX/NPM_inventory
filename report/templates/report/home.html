@@ -5,9 +5,11 @@
       <section>
         <div>
             <div class="greeting" style="text-align: center;" >
-                <h1>{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}</h1>
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            <h1>{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}</h1>
+            <h3>{% if user.is_authenticated %} {{ user.profile.title }}{% endif %}</h3>
             </div>
-            <p class="h2">What would u like to do?</p>
+            <p class="h2">What would you like to do?</p>
             <ul class="nav justify-content-center" id="options" >
                 <li class="nav-item">
                     <a class="btn btn-primary btn-lg" style="background-color: #043983;" aria-current="page" href="#">View report </a>
