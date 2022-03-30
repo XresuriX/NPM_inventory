@@ -1,0 +1,65 @@
+{% extends "report/base.html" %}
+{% load static%}
+{% block content %}
+
+<div class="table-responsive ">
+    <div class="greeting" style="text-align: center;" >
+        <h1>{% if user.is_authenticated %}Prepared by, {{ user.username }}.{% endif %}</h1>
+    </div>
+  <table class="table table-sm table-bordered border-primary" >
+    <col>
+    <colgroup span="2"></colgroup>
+    <colgroup span="2"></colgroup>
+    <tr>
+      <th style="text-align: center;" rowspan="2">Ingredient</th>
+      <th style="text-align: center;" colspan="2" scope="colgroup">open</th>
+      <th style="text-align: center;" >Received</th>
+      <th style="text-align: center;" >Bin top up</th>
+      <th style="text-align: center;" colspan="3" scope="colgroup" >Usage</th>
+      <th style="text-align: center;" colspan="2" scope="colgroup">Close</th>
+      <th style="text-align: center;">Amt used</th>
+      <th style="text-align: center;" colspan="2" scope="colgroup">Expiry date</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;" scope="col">Bags</th>
+      <th style="text-align: center;" scope="col">Kgs</th>
+      <th style="text-align: center;" scope="col">Bags</th>
+      <th style="text-align: center;" scope="col">Bags dumped in <BR> micro bin</th>
+      <th style="text-align: center;" scope="col">hand add</th>
+      <th style="text-align: center;" scope="col">kgs dumped</th>
+      <th style="text-align: center;" scope="col">Lot number</th>
+      <th style="text-align: center;" scope="col">Bags</th>
+      <th style="text-align: center;" scope="col">Kgs</th>
+      <th style="text-align: center;" scope="col">Kgs</th>
+      <th style="text-align: center;" scope="col">oldest</th>
+    </tr>
+     {% for entry in object_list %}
+
+        <tr>
+            <th style="text-align: center;" scope="row">{{ entry.name }}</th>
+            <td>{{ entry.opening_bgs }}</td>
+            <td>{{ entry.opening_kgs }}</td>
+            <td>{{ entry.recieved }}</td>
+            <td>{{ entry.bags_used_bin }}</td>
+            <td>{{ entry.bags_used_Th3 }}</td>
+            <td>{{ entry.kgs_used_Th3 }}</td>
+            <td>{{ entry.lot_number }}</td>
+            <td>{{ entry.current_bgs }}</td>
+            <td>{{ entry.current_kgs }}</td>
+            <td>{{ entry.total_used_kgs }}</td>
+            <td>{{ entry.expiry_date }}</td>
+        </tr>
+
+      {% endfor %}
+
+  </table>
+  <div class="container">
+
+    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="#">submit </a>
+    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="{% url 'report:home' %}">Back to home</a>
+
+  </div>
+
+</div>
+{% endblock content %}
+

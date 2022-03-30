@@ -1,0 +1,24 @@
+{% extends "report/base.html" %}
+{% load static%}
+{% block content %}
+
+<div class="table-responsive ">
+    <div class="greeting" style="text-align: center;" >
+        <h1>{% if user.is_authenticated %}Prepared by, {{ user.username }}.{% endif %}</h1>
+    </div>
+    {% for entry in object_list %}
+        <ul>
+            <li>{{ entry.name }}</li>
+            <li>{{ entry.id }}</li>
+        </ul>
+    {% endfor %}
+  <div class="container">
+
+    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="#">submit </a>
+    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="{% url 'report:home' %}">Back to home</a>
+
+  </div>
+
+</div>
+{% endblock content %}
+
