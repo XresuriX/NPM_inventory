@@ -47,7 +47,7 @@ class IngredientCreateView(CreateView, LoginRequiredMixin, TemplateView):
         return render(request, 'report/ingredients_form.html', {'form': form})
 
 
-class ReportCreateView(UpdateView, LoginRequiredMixin, TemplateView):
+class ReportCreateView(CreateView, LoginRequiredMixin, TemplateView):
     model = Report
     form_class = ReportUpdateForm
     login_url = '/login/'
