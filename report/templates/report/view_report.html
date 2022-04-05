@@ -36,7 +36,9 @@
      {% for entry in object_list %}
 
         <tr>
-            <th style="text-align: center;" scope="row">{{ entry.id }}</th>
+            <th style="text-align: center;" scope="row"><a class="navbar-brand" href="{% url 'report:Update_entry' entry.pk %}">
+            <img class="logo" src="{% static 'images/images.png' %}"  width="50" height="50">
+        </a>{{ entry.id }}</th>
             <td>{{ entry.opening_bgs }}</td>
             <td>{{ entry.opening_kgs }}</td>
             <td>{{ entry.recieved }}</td>

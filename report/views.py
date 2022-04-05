@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout
 from .forms import IngredientUpdateForm, ReportUpdateForm
 from .models import Ingredients, Report
@@ -11,7 +11,6 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-
 
 
 def home(request):
@@ -61,6 +60,18 @@ class ReportCreateView(CreateView, LoginRequiredMixin, TemplateView):
         return render(request, 'report/report_form.html', {'form': form})
 
 
+class UpdateEntryView(UpdateView, LoginRequiredMixin, TemplateView):
+    model = Report
+    form_class = ReportUpdateForm
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+
+    def get_success_url(self):
+        return reverse('report:View Report')
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class
+        return render(request, 'report/report_form.html', {'form': form})
 
 
 def loginPage(request):
