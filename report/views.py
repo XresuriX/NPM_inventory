@@ -84,7 +84,7 @@ class UpdateEntryView(UpdateView, LoginRequiredMixin, TemplateView):
 def report_pdf(request):
     entries = Report.objects.all()
 
-    template_path = 'report/pdf_Report.html'
+    template_path = 'report/test.html'
 
     context = {'entries': entries}
 
@@ -99,7 +99,7 @@ def report_pdf(request):
     # create a pdf
     pisa_status = pisa.CreatePDF(
         html, dest=response)
-    # if error then show some funny view
+    # if error then show some funy view
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
