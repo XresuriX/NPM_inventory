@@ -1,3 +1,5 @@
+
+
 {% extends "report/base.html" %}
 {% load static%}
 {% block content %}
@@ -33,12 +35,11 @@
       <th style="text-align: center;" scope="col">Kgs</th>
       <th style="text-align: center;" scope="col">oldest</th>
     </tr>
-     {% for entry in object_list %}
+     {% for entry in entries %}
 
         <tr>
-            <th style="text-align: center;" scope="row"><a class="navbar-brand" href="{% url 'report:Update_entry' entry.pk %}">
-            <img class="logo" src="{% static 'images/images.png' %}"  width="50" height="50">
-        </a>{{ entry.id }}</th>
+
+            <td>{{ entry.id }}</td>
             <td>{{ entry.opening_bgs }}</td>
             <td>{{ entry.opening_kgs }}</td>
             <td>{{ entry.recieved }}</td>
@@ -55,13 +56,6 @@
       {% endfor %}
 
   </table>
-  <div class="container">
-
-    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="{% url 'report:Pdf Report' %}">submit </a>
-    <a class="btn btn-warning btn-lg" style="align: center;" aria-current="page" href="{% url 'report:home' %}">Back to home</a>
-
-  </div>
 
 </div>
 {% endblock content %}
-

@@ -11,6 +11,12 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
+# Import PDF Stuff
+from django.http import HttpResponse
+
+from django.template.loader import get_template
+
+from xhtml2pdf import pisa
 
 
 def home(request):
@@ -72,6 +78,31 @@ class UpdateEntryView(UpdateView, LoginRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         form = self.form_class
         return render(request, 'report/report_form.html', {'form': form})
+
+
+# Generate a PDF File Venue List
+def report_pdf(request):
+    entries = Report.objects.all()
+
+    template_path = 'report/pdf_Report.html'
+
+    context = {'entries': entries}
+
+    response = HttpResponse(content_type='application/pdf')
+
+    response['Content-Disposition'] = 'filename="pdf_report.pdf"'
+
+    template = get_template(template_path)
+
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response)
+    # if error then show some funny view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 
 def loginPage(request):
