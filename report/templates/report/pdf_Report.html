@@ -4,7 +4,7 @@
 <head>
 <style>
     @page {
-        size: letter landscape;
+        size: letter portrait;
         margin: 2cm;
 
 
@@ -33,11 +33,11 @@
         }
 </style>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Micro Report</title>
 </head>
 <body>
     <div class="table-responsive ">
-
+        <h3>Date submitted {% now "jS F Y" %}</h3>
       <table class="table table-sm table-bordered border-primary" >
         <col>
         <colgroup span="2"></colgroup>
@@ -85,7 +85,11 @@
 
 
       </table>
-    {% now "jS F Y" %}
+      <div class="container">
+        <h3>Reviewed by:___________________</h3>
+        <h3>Date checked:__/__/____</h3>
+
+      </div>
     </div>
 </body>
 </html>

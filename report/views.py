@@ -84,7 +84,7 @@ class UpdateEntryView(UpdateView, LoginRequiredMixin, TemplateView):
 def report_pdf(request):
     entries = Report.objects.all()
 
-    template_path = 'report/test.html'
+    template_path = 'report/pdf_Report.html'
 
     context = {'entries': entries}
 
