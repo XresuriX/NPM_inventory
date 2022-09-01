@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'extra_views',
     'crispy_forms',
+    'rest_framework',
 
 ]
 
