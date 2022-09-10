@@ -1,32 +1,199 @@
 {% extends "report/base.html" %}
 {% load static%}
 {% block content %}
-  <div class="container"  style="text-align: center;">
-      <section>
-        <div>
-            <div class="greeting" style="text-align: center;" >
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-            <h1>{% if user.is_authenticated %}Hello, {{ user.username }}.{% endif %}</h1>
-            <h3>{% if user.is_authenticated %} {{ user.profile.title }}{% endif %}</h3>
-            </div>
-            {% if user.is_authenticated %}
-                <p class="h2">What would you like to do?</p>
-                <ul class="nav justify-content-center" id="options" >
-                    <li class="nav-item">
-                        <a class="btn btn-primary btn-lg" style="background-color: #043983;" aria-current="page" href="{% url 'report:View Report' %}">View report </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-primary btn-lg" style="background-color: #043983;"  href="{% url 'report:New Report' %}">Start New report </a>
-                    </li>
-                </ul>
-            {% else %}
-                <p class="h2">Please sign in</p>
-            {% endif %}
-        </div>
-      </section>
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
 
+                    <!-- Content Row -->
+                    <div class="row">
 
-  </div>
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                In Progress</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Broiler Ration Pellets (15/25)</div>
+                                        </div>
+                                        <div class="col-auto">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                In Progress</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Broiler Ration Crumble (19/20)</div>
+                                        </div>
+                                        <div class="col-auto">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Up next</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Broiler Ration Crumble (1/30)</div>
+                                        </div>
+                                        <div class="col-auto">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Up next</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Dairy developer pellets (1/6)</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Production Overview</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <img class="logo" src="{% static 'images/1software_pieni.jpg' %}"  width="576" height="300">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tasks</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <!-- Collapsable Card Example -->
+                                    <div class="card shadow mb-4">
+                                        <!-- Card Header - Accordion -->
+                                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                            role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                            <h6 class="m-0 font-weight-bold text-primary">Task 1</h6>
+                                        </a>
+                                        <!-- Card Content - Collapse -->
+                                        <div class="collapse show" id="collapseCardExample">
+                                            <div class="card-body">
+                                                Clean holes
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Collapsable Card Example -->
+                                    <div class="card shadow mb-4">
+                                        <!-- Card Header - Accordion -->
+                                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                            role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                            <h6 class="m-0 font-weight-bold text-primary">Task 2</h6>
+                                        </a>
+                                        <!-- Card Content - Collapse -->
+                                        <div class="collapse show" id="collapseCardExample">
+                                            <div class="card-body">
+                                                Clean micro area and remove extra materials into the right areas
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Collapsable Card Example -->
+                                    <div class="card shadow mb-4">
+                                        <!-- Card Header - Accordion -->
+                                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                            role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                            <h6 class="m-0 font-weight-bold text-primary">Task 3</h6>
+                                        </a>
+                                        <!-- Card Content - Collapse -->
+                                        <div class="collapse show" id="collapseCardExample">
+                                            <div class="card-body">
+                                                Dump rework in Th3
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
 {% endblock content %}
+
+
+
 

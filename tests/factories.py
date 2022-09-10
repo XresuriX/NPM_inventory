@@ -17,9 +17,9 @@ class UserFactory(DjangoModelFactory):
 
 class IngredientsFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = 'report.Ingredients'
+       model = models.Ingredients
 
-    id = set(fake.unique.random_int() for i in range(100))
+    id = fake.unique.random_int()
     name = factory.LazyAttribute(lambda _: fake.name())
     discription = fake.text()
 

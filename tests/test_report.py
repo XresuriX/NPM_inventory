@@ -1,6 +1,6 @@
 import pytest
 from django.contrib.auth.models import User
-from factories import IngredientsFactory
+from .factories import IngredientsFactory
 
 
 """@pytest.fixture()
@@ -47,8 +47,7 @@ def test_new_user(new_user_1):
     assert True
 
 
-def test_new_product(db, IngredientsFactory):
-    new = IngredientsFactory.build()
-    assert test_new_product is IngredientsFactory
-
+def test_new_product(db, ingredients):
+    print(ingredients.discription)
+    assert True
 
