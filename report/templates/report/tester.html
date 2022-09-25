@@ -1,0 +1,76 @@
+{% extends "report/base.html" %}
+{% load static%}
+{% block content %}
+
+<!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                                    <div class="greeting" style="text-align: center;" >
+                                        <h1>{% if user.is_authenticated %}Prepared by, {{ user.username }}.{% endif %}</h1>
+                                    </div>
+                                    <tr>
+                                      <th style="text-align: center;" rowspan="2">Ingredient</th>
+                                      <th style="text-align: center;" colspan="2" scope="colgroup">open</th>
+                                      <th style="text-align: center;" >Received</th>
+                                      <th style="text-align: center;" >Bin top up</th>
+                                      <th style="text-align: center;" colspan="3" scope="colgroup" >Usage</th>
+                                      <th style="text-align: center;" colspan="2" scope="colgroup">Close</th>
+                                      <th style="text-align: center;">Amt used</th>
+                                      <th style="text-align: center;" colspan="2" scope="colgroup">Expiry date</th>
+                                    </tr>
+                                    <tr>
+                                      <th style="text-align: center;" scope="col">Bags</th>
+                                      <th style="text-align: center;" scope="col">Kgs</th>
+                                      <th style="text-align: center;" scope="col">Bags</th>
+                                      <th style="text-align: center;" scope="col">Bags dumped in <BR> micro bin</th>
+                                      <th style="text-align: center;" scope="col">hand add</th>
+                                      <th style="text-align: center;" scope="col">kgs dumped</th>
+                                      <th style="text-align: center;" scope="col">Lot number</th>
+                                      <th style="text-align: center;" scope="col">Bags</th>
+                                      <th style="text-align: center;" scope="col">Kgs</th>
+                                      <th style="text-align: center;" scope="col">Kgs</th>
+                                      <th style="text-align: center;" scope="col">oldest</th>
+                                    </tr>
+                                     {% for entry in object_list %}
+
+                                        <tr>
+                                            <th style="text-align: center;" scope="row"><a class="navbar-brand" href="{% url 'report:Update_entry' entry.pk %}">
+                                            <img class="logo" src="{% static 'images/images.png' %}"  width="50" height="50">
+                                        </a>{{ entry.id }}</th>
+                                            <td>{{ entry.opening_bgs }}</td>
+                                            <td>{{ entry.opening_kgs }}</td>
+                                            <td>{{ entry.recieved }}</td>
+                                            <td>{{ entry.bags_used_bin }}</td>
+                                            <td>{{ entry.bags_used_Th3 }}</td>
+                                            <td>{{ entry.kgs_used_Th3 }}</td>
+                                            <td>{{ entry.lot_number }}</td>
+                                            <td>{{ entry.current_bgs }}</td>
+                                            <td>{{ entry.current_kgs }}</td>
+                                            <td>{{ entry.total_used_kgs }}</td>
+                                            <td>{{ entry.expiry_date }}</td>
+                                        </tr>
+
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+{% endblock content %}

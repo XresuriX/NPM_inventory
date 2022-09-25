@@ -2,7 +2,7 @@
 {% load static%}
 {% block content %}
 
-<div class="table-responsive ">
+<div class="table-responsive card shadow mb-4">
     <div class="greeting" style="text-align: center;" >
         <h1>{% if user.is_authenticated %}Prepared by, {{ user.username }}.{% endif %}</h1>
     </div>

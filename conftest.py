@@ -1,16 +1,21 @@
 import pytest
 
 from pytest_factoryboy import register
-from tests.factories import UserFactory, IngredientsFactory
+from tests.factories import UserFactory, IngredientsFactory, ReportsFactory
 
 register(UserFactory)
 register(IngredientsFactory)
+register(ReportsFactory)
 
 
 @pytest.fixture()
 def new_user_1(db, user_factory):
     user = user_factory.create()
     return user
+
+
+
+
 
 """
 from django.contrib.auth.models import User

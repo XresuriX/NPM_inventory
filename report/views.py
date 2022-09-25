@@ -20,7 +20,11 @@ from xhtml2pdf import pisa
 
 
 def home(request):
-    return render(request, 'report/home.html')
+    return render(request, 'report/tester.html')
+
+
+def production_view(request):
+    return render(request, 'report/Production_view.html')
 
 
 class EntryView(ListView, LoginRequiredMixin, TemplateView):

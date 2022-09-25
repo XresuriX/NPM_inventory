@@ -16,6 +16,7 @@ from .views import (
 app_name = 'report'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('production_view', views.production_view, name='production view'),
     path('ingredient/new', IngredientCreateView.as_view(), name='New Entry'),
     path('report/new', ReportCreateView.as_view(), name='New Report'),
     path('report/update/<str:pk>', UpdateEntryView.as_view(), name='Update_entry'),

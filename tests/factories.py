@@ -7,6 +7,7 @@ from report import models
 fake = Faker()
 
 
+# example
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
@@ -15,6 +16,7 @@ class UserFactory(DjangoModelFactory):
     is_staff = 'True'
 
 
+# Factory for the ingredients model
 class IngredientsFactory(factory.django.DjangoModelFactory):
     class Meta:
        model = models.Ingredients
@@ -22,6 +24,29 @@ class IngredientsFactory(factory.django.DjangoModelFactory):
     id = fake.unique.random_int()
     name = factory.LazyAttribute(lambda _: fake.name())
     discription = fake.text()
+
+
+# Factory for the report model
+class ReportsFactory(factory.django.DjangoModelFactory):
+    class Meta:
+       model = models.Report
+
+    id = factory.SubFactory(IngredientsFactory)
+    name = fake.name()
+    opening_bgs = fake.random_int()
+    opening_kgs = fake.pyfloat()
+    recieved = fake.random_int()
+    bags_used_bin = fake.random_int()
+    bags_used_Th3 = fake.random_int()
+    kgs_used_Th3 = fake.pyfloat()
+    lot_number = fake.pystr_format()
+    current_bgs = fake.random_int()
+    current_kgs = fake.pyfloat()
+    total_used_kgs = fake.random_int()
+    expiry_date = fake.date()
+
+
+
 
 
 
