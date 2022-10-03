@@ -23,7 +23,6 @@ class IngredientsFactory(factory.django.DjangoModelFactory):
 
     id = fake.unique.random_int()
     name = factory.LazyAttribute(lambda _: fake.name())
-    discription = fake.text()
 
 
 # Factory for the report model
@@ -35,7 +34,7 @@ class ReportsFactory(factory.django.DjangoModelFactory):
     name = fake.name()
     opening_bgs = fake.random_int()
     opening_kgs = fake.pyfloat()
-    recieved = fake.random_int()
+    received = fake.random_int()
     bags_used_bin = fake.random_int()
     bags_used_Th3 = fake.random_int()
     kgs_used_Th3 = fake.pyfloat()

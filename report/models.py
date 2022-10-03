@@ -4,10 +4,11 @@ from django.db import models
 class Ingredients(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('Ingredient', max_length=200, null=False, blank=False, default='New entry')
-    discription = models.TextField()
+    description = models.TextField()
+    Avg_weight = models.FloatField(blank=False, null=False, default='25')
 
     def __str__(self):
-        return '{}/{}'.format(self.id, self.name, self.discription)
+        return '{}/{}'.format(self.id, self.name, self.description)
 
 
 class Report(models.Model):
@@ -15,7 +16,7 @@ class Report(models.Model):
     name = models.CharField('Ingredient', max_length=200, null=False, blank=False, default='New entry')
     opening_bgs = models.BigIntegerField(null=True, blank=True)
     opening_kgs = models.FloatField(null=True, blank=True)
-    recieved = models.BigIntegerField(null=True, blank=True)
+    received = models.BigIntegerField(null=True, blank=True)
     bags_used_bin = models.BigIntegerField(null=True, blank=True)
     bags_used_Th3 = models.BigIntegerField(null=True, blank=True)
     kgs_used_Th3 = models.FloatField(null=True, blank=True)
@@ -27,5 +28,5 @@ class Report(models.Model):
     comment_body = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return '{}/{}'.format(self.id, self.name, self.opening_kgs, self.recieved, self.bags_used_bin, self.bags_used_Th3, self.lot_number, self.current_bgs, self.current_kgs, self.total_used_kgs, self.expiry_date)
+        return '{}/{}'.format(self.id, self.name, self.opening_kgs, self.received, self.bags_used_bin, self.bags_used_Th3, self.lot_number, self.current_bgs, self.current_kgs, self.total_used_kgs, self.expiry_date)
 
